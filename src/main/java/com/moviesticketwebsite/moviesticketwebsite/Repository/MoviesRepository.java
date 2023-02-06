@@ -21,7 +21,7 @@ public interface MoviesRepository extends JpaRepository<Movies,Long> {
     @Query("FROM Movies where release_date > ADDDATE(CURDATE(), 1) ORDER BY release_date")
     public List<Movies> findComingSoon();
 
-    @Query("FROM Movies where release_date < ADDDATE(CURDATE(),-30) ORDER BY release_date")
+    @Query("FROM Movies where release_date < ADDDATE(CURDATE(),-30) ORDER BY release_date DESC")
     public List<Movies> findAlreadyShown();
 
     public void deleteById(Long id); 
