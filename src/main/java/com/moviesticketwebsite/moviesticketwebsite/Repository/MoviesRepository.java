@@ -9,7 +9,7 @@ import com.moviesticketwebsite.moviesticketwebsite.model.Movies;
 
 public interface MoviesRepository extends JpaRepository<Movies,Long> {
     
-    @Query("FROM Movies Where release_date >= ADDDATE(CURDATE(),-30) AND release_date <= ADDDATE(CURDATE(), 1) ORDER BY release_date DESC")
+    @Query("FROM Movies Where release_date >= ADDDATE(CURDATE(),-30) AND release_date <= CURDATE() ORDER BY release_date DESC")
     public List<Movies> findAllOrderByDate();
 
     public Movies findMovieById(Long id);
